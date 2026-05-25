@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PGM Academy - Download Sertifikat</title>
-    <!-- CDN Tailwind v3 - Aman di HP + Tampilan Persis -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -25,7 +24,6 @@
     <div class="hero-gradient px-4 pt-4 pb-32">
         <div class="max-w-md mx-auto flex justify-between items-start">
             <div class="flex items-center gap-3">
-                <!-- Logo PGM Transparan -->
                 <img src="https://i.imgur.com/aLYPqyB.png" alt="Logo PGM Academy" class="w-10 h-10 object-contain">
                 <div>
                     <h1 class="text-[#2DD4BF] font-bold text-lg leading-tight">PGM ACADEMY</h1>
@@ -59,7 +57,8 @@
                     </p>
                 </div>
                 <div class="w-32 -mr-4 -mt-4">
-                    <img src="https://i.imgur.com/8Km9tLL.png" alt="Sertifikat" class="w-full rotate-6 drop-shadow-2xl">
+                    <!-- Gambar diganti sementara -->
+                    <img src="https://i.imgur.com/K2m1sLp.png" alt="Ilustrasi" class="w-full rotate-6 drop-shadow-2xl rounded-xl">
                 </div>
             </div>
         </div>
@@ -210,7 +209,8 @@
                             <p class="text-gray-500 text-sm">Berikut data sertifikat Anda</p>
                         </div>
                         <div class="bg-gray-50 rounded-2xl p-4 mb-5">
-                            <img src="https://i.imgur.com/8Km9tLL.png" alt="Sertifikat Preview" class="w-full rounded-xl mb-4 shadow-lg">
+                            <!-- Gambar preview diganti juga -->
+                            <img src="https://i.imgur.com/K2m1sLp.png" alt="Preview" class="w-full rounded-xl mb-4 shadow-lg">
                             <div class="space-y-2 text-sm">
                                 <div class="flex justify-between"><span class="text-gray-500">Nama:</span><span class="text-[#0B2D2A] font-semibold">Ahmad Wijaya</span></div>
                                 <div class="flex justify-between"><span class="text-gray-500">No. Sertifikat:</span><span class="text-[#0B2D2A] font-semibold">PGM/2024/001234</span></div>
@@ -246,61 +246,14 @@
         const resultModal = document.getElementById('resultModal');
         const successState = document.getElementById('successState');
         const errorState = document.getElementById('errorState');
-        
-        nikInput.addEventListener('input', function(e) { 
-            this.value = this.value.replace(/[^0-9]/g, ''); 
-            nikError.classList.add('hidden'); 
-            nikInput.classList.remove('ring-2', 'ring-red-500'); 
-        });
-        
-        function cekSertifikat() { 
-            const nik = nikInput.value; 
-            if (nik.length !== 16) { 
-                nikError.classList.remove('hidden'); 
-                nikInput.classList.add('ring-2', 'ring-red-500'); 
-                nikInput.focus(); 
-                return; 
-            } 
-            cekButton.disabled = true; 
-            cekButton.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i><span>Memproses...</span>'; 
-            setTimeout(() => { 
-                cekButton.disabled = false; 
-                cekButton.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i><span>Cek & Download Sertifikat</span>'; 
-                if (nik === '3171234567890001' || nik.startsWith('32')) { 
-                    showSuccess(); 
-                } else { 
-                    showError(); 
-                } 
-            }, 2000); 
-        }
-        
-        function showSuccess() { 
-            resultModal.classList.remove('hidden'); 
-            successState.classList.remove('hidden'); 
-            errorState.classList.add('hidden'); 
-        }
-        
-        function showError() { 
-            resultModal.classList.remove('hidden'); 
-            errorState.classList.remove('hidden'); 
-            successState.classList.add('hidden'); 
-        }
-        
-        function closeModal() { 
-            resultModal.classList.add('hidden'); 
-        }
-        
-        function downloadSertifikat() { 
-            alert('Download dimulai!\n\nIntegrasikan dengan API download sertifikat kamu di sini'); 
-        }
-        
-        function caraMenemukanNIK() { 
-            alert('Cara Menemukan NIK:\n\n1. Lihat di KTP Anda\n2. NIK terdiri dari 16 digit angka\n3. Terletak di bagian atas KTP\n\nContoh: 3171234567890001'); 
-        }
-        
-        resultModal.addEventListener('click', function(e) { 
-            if (e.target === resultModal) closeModal(); 
-        });
+        nikInput.addEventListener('input', function(e) { this.value = this.value.replace(/[^0-9]/g, ''); nikError.classList.add('hidden'); nikInput.classList.remove('ring-2', 'ring-red-500'); });
+        function cekSertifikat() { const nik = nikInput.value; if (nik.length !== 16) { nikError.classList.remove('hidden'); nikInput.classList.add('ring-2', 'ring-red-500'); nikInput.focus(); return; } cekButton.disabled = true; cekButton.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i><span>Memproses...</span>'; setTimeout(() => { cekButton.disabled = false; cekButton.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i><span>Cek & Download Sertifikat</span>'; if (nik === '3171234567890001' || nik.startsWith('32')) { showSuccess(); } else { showError(); } }, 2000); }
+        function showSuccess() { resultModal.classList.remove('hidden'); successState.classList.remove('hidden'); errorState.classList.add('hidden'); }
+        function showError() { resultModal.classList.remove('hidden'); errorState.classList.remove('hidden'); successState.classList.add('hidden'); }
+        function closeModal() { resultModal.classList.add('hidden'); }
+        function downloadSertifikat() { alert('Download dimulai!\n\nIntegrasikan dengan API download sertifikat kamu di sini'); }
+        function caraMenemukanNIK() { alert('Cara Menemukan NIK:\n\n1. Lihat di KTP Anda\n2. NIK terdiri dari 16 digit angka\n3. Terletak di bagian atas KTP\n\nContoh: 3171234567890001'); }
+        resultModal.addEventListener('click', function(e) { if (e.target === resultModal) closeModal(); });
     </script>
 </body>
 </html>
