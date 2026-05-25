@@ -1,125 +1,97 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cek Sertifikat - PGM Academy</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial;
-      background: #0d4f3c;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-   .container { width: 100%; max-width: 420px; }
-   .card {
-      background: white;
-      padding: 32px 28px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    }
-   .icon {
-      width: 48px; height: 48px; background: #e8f5f0;
-      border-radius: 12px; display: flex; align-items: center;
-      justify-content: center; margin: 0 auto 16px; font-size: 24px;
-    }
-    h2 { text-align: center; color: #0d4f3c; font-size: 22px; margin-bottom: 8px; }
-   .subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 24px; }
-    label { display: block; color: #333; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
-    input {
-      width: 100%; padding: 14px 16px; font-size: 15px;
-      border: 1px solid #ddd; border-radius: 10px; margin-bottom: 16px;
-    }
-    input:focus { outline: none; border-color: #0d4f3c; }
-    button {
-      width: 100%; padding: 15px; font-size: 16px; font-weight: 700;
-      color: white; background: #0d4f3c; border: none;
-      border-radius: 10px; cursor: pointer;
-    }
-    button:disabled { background: #999; cursor: not-allowed; }
-    button:hover:not(:disabled) { background: #0a3d2f; }
-   .divider {
-      text-align: center; margin: 20px 0; color: #999;
-      font-size: 13px; position: relative;
-    }
-   .divider::before,.divider::after {
-      content: ''; position: absolute; top: 50%;
-      width: 40%; height: 1px; background: #e0e0e0;
-    }
-   .divider::before { left: 0; }.divider::after { right: 0; }
-   .info-btn {
-      width: 100%; padding: 12px; font-size: 14px;
-      background: white; border: 1px solid #ddd; border-radius: 10px;
-      color: #0d4f3c; text-decoration: none; display: block; text-align: center;
-    }
-   .notice {
-      margin-top: 20px; padding: 14px; background: #e8f5f0;
-      border-radius: 10px; font-size: 13px;
-    }
-   .notice b { color: #0d4f3c; display: block; margin-bottom: 4px; }
-   .notice p { color: #555; line-height: 1.5; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Sertifikat - PGM Indonesia KBB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        #result iframe { width: 100%; border: none; }
+    </style>
 </head>
-<body>
-  <div class="container">
-    <div class="card">
-      <div class="icon">📄</div>
-      <h2>Cek Sertifikat Anda</h2>
-      <p class="subtitle">Masukkan NIK untuk menemukan sertifikat Anda</p>
+<body class="bg-[#0B2D2A]">
 
-      <label>Nomor Induk Kependudukan (NIK)</label>
-      <input type="text" id="nik" placeholder="Contoh: 3171234567890001" maxlength="16">
-      <button type="button" onclick="cekSertifikat()">🔍 Cek & Download Sertifikat</button>
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-lg w-full max-w-lg mx-4 sm:mx-0 overflow-hidden">
+            <!-- Header -->
+            <div class="bg-[#0B2D2A] p-8 text-center">
+                <img src="https://pgmindonesia.id/wp-content/uploads/2023/08/logo-pgm-png.png" alt="Logo PGM" class="h-14 mx-auto mb-4">
+                <h1 class="text-white text-2xl font-bold">Cek Sertifikat Anda</h1>
+                <p class="text-gray-300 text-sm mt-1">Masukkan NIK untuk menemukan sertifikat Anda</p>
+            </div>
 
-      <div class="divider">atau</div>
+            <!-- Form -->
+            <div class="p-8">
+                <label for="nik" class="block text-sm font-semibold text-gray-800 mb-2">Nomor Induk Kependudukan (NIK)</label>
+                <input type="text" id="nik" maxlength="16" placeholder="Contoh: 3171234567890001" class="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0B2D2A] focus:border-transparent outline-none text-center text-lg tracking-widest">
+                
+                <button onclick="cekNIK()" class="w-full bg-[#0B2D2A] text-white py-3.5 rounded-xl font-semibold hover:bg-opacity-90 transition mt-4 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Cek & Download Sertifikat</span>
+                </button>
 
-      <a href="https://forms.gle/BphpqbjkBKG6ih3E8" target="_blank" class="info-btn">
-        ℹ️ Cara Menemukan NIK
-      </a>
+                <div class="flex items-center my-6">
+                    <hr class="flex-1 border-gray-200"><span class="px-3 text-xs text-gray-400">atau</span><hr class="flex-1 border-gray-200">
+                </div>
 
-      <div class="notice">
-        <b>Data Anda aman bersama kami</b>
-        <p>Kami tidak menyimpan data pribadi Anda. Sertifikat hanya dapat diakses oleh pemilik sah.</p>
-      </div>
+                <button class="w-full border border-gray-300 text-gray-700 py-3 rounded-xl font-medium hover:bg-gray-50 transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <span>Cara Menemukan NIK</span>
+                </button>
+
+                <div class="bg-[#E8F9F7] border border-teal-100 rounded-xl p-4 mt-6 text-sm">
+                    <p class="font-semibold text-[#0B2D2A]">Data Anda aman bersama kami</p>
+                    <p class="text-gray-600 mt-1">Kami tidak menyimpan data pribadi Anda. Sertifikat hanya dapat diakses oleh pemilik sah.</p>
+                </div>
+
+                <!-- Hasil muncul di sini -->
+                <div id="result" class="mt-6"></div>
+            </div>
+        </div>
     </div>
-  </div>
 
-<script>
-const API_URL = 'https://script.google.com/macros/s/AKfycbwkVelVtqMX64yPT7gmTub8tYKkFJxzBs3-3HG57TXRKaZ5NCVPVPPwK5W_z-6oHbh-bA/exec';
+    <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxxx.../exec";
 
-function cekSertifikat() {
-  const nik = document.getElementById('nik').value.trim();
-  const btn = document.querySelector('button');
+        async function cekNIK() {
+            const nikInput = document.getElementById('nik');
+            const resultDiv = document.getElementById('result');
+            const nik = nikInput.value.trim();
 
-  if (!nik) {
-    alert('Masukkan NIK dulu ya');
-    return;
-  }
-  if (nik.length!== 16) {
-    alert('NIK harus 16 digit');
-    return;
-  }
+            if (nik.length !== 16 || !/^\d+$/.test(nik)) {
+                resultDiv.innerHTML = `
+                    <div class="bg-red-50 border border-red-200 text-red-800 rounded-xl p-4 text-sm">
+                        <i class="fa-solid fa-circle-exclamation mr-2"></i>
+                        NIK harus 16 digit angka.
+                    </div>`;
+                return;
+            }
 
-  btn.disabled = true;
-  btn.innerText = 'Membuka...';
+            resultDiv.innerHTML = `
+                <div class="text-center text-gray-500 py-8">
+                    <i class="fa-solid fa-spinner fa-spin text-2xl mb-2"></i>
+                    <p class="text-sm">Sedang mengecek data...</p>
+                </div>`;
 
-  // Buka di tab baru biar ga kena blok script.google.com
-  window.open(`${API_URL}?nik=${nik}`, '_blank');
+            try {
+                const response = await fetch(`${SCRIPT_URL}?nik=${nik}`);
+                const html = await response.text();
+                resultDiv.innerHTML = `<iframe srcdoc="${html.replace(/"/g, '&quot;')}" onload="this.style.height=this.contentWindow.document.body.scrollHeight+'px';"></iframe>`;
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="bg-red-50 border border-red-200 text-red-800 rounded-xl p-4 text-sm">
+                        <i class="fa-solid fa-wifi mr-2"></i>
+                        Gagal terhubung ke server. Coba refresh halaman.
+                    </div>`;
+            }
+        }
 
-  setTimeout(() => {
-    btn.disabled = false;
-    btn.innerText = '🔍 Cek & Download Sertifikat';
-  }, 2000);
-}
-
-// Enter key juga bisa
-document.getElementById('nik').addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') cekSertifikat();
-});
-</script>
+        document.getElementById('nik').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') cekNIK();
+        });
+    </script>
 </body>
 </html>
