@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PGM Academy - Download Sertifikat</title>
+    <title>Portal Media PGM KBB - Download Sertifikat</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -20,14 +20,13 @@
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Header -->
     <div class="hero-gradient px-4 pt-4 pb-32">
         <div class="max-w-md mx-auto flex justify-between items-start">
             <div class="flex items-center gap-3">
-                <img src="https://i.imgur.com/aLYPqyB.png" alt="Logo PGM Academy" class="w-10 h-10 object-contain">
+                <img src="https://i.imgur.com/aLYPqyB.png" alt="Logo PGM" class="w-10 h-10 object-contain">
                 <div>
-                    <h1 class="text-[#2DD4BF] font-bold text-lg leading-tight">PGM ACADEMY</h1>
-                    <p class="text-white text-xs">Pelatihan Generasi Maju</p>
+                    <h1 class="text-[#2DD4BF] font-bold text-lg leading-tight">PORTAL MEDIA PGM KBB</h1>
+                    <p class="text-white text-xs">Kabupaten Bandung Barat</p>
                 </div>
             </div>
             <div class="bg-white bg-opacity-10 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-2">
@@ -39,7 +38,6 @@
             </div>
         </div>
 
-        <!-- Hero Content -->
         <div class="max-w-md mx-auto mt-8">
             <div class="inline-flex items-center gap-2 bg-white bg-opacity-10 backdrop-blur-sm px-3 py-1.5 rounded-full mb-4">
                 <div class="w-2 h-2 bg-[#2DD4BF] rounded-full"></div>
@@ -47,168 +45,3 @@
             </div>
             
             <div class="flex items-start justify-between">
-                <div class="flex-1">
-                    <h2 class="text-white text-4xl font-bold leading-tight">
-                        Download<br>
-                        <span class="text-[#2DD4BF]">Sertifikat</span>
-                    </h2>
-                    <p class="text-white text-opacity-80 text-sm mt-3 leading-relaxed">
-                        Masukkan NIK Anda untuk mengunduh<br>sertifikat pelatihan resmi dari<br>PGM Academy.
-                    </p>
-                </div>
-                <div class="w-32 -mr-4 -mt-4">
-                    <img src="https://i.imgur.com/8Km9tLL.png" alt="Sertifikat" class="w-full rotate-6 drop-shadow-2xl">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Form Card -->
-    <div class="max-w-md mx-auto px-4 -mt-20 relative z-10">
-        <div class="bg-white rounded-3xl card-shadow p-6">
-            <div class="text-center mb-6">
-                <div class="w-14 h-14 bg-[#E8F9F7] rounded-2xl flex items-center justify-center mx-auto mb-3">
-                    <i class="fa-regular fa-file-lines text-[#2DD4BF] text-2xl"></i>
-                </div>
-                <h3 class="text-[#0B2D2A] text-xl font-bold">Cek Sertifikat Anda</h3>
-                <p class="text-gray-500 text-sm mt-1">Masukkan NIK untuk menemukan sertifikat Anda</p>
-            </div>
-
-            <div class="mb-4">
-                <label class="text-[#0B2D2A] text-sm font-semibold mb-2 block">Nomor Induk Kependudukan (NIK)</label>
-                <div class="relative">
-                    <i class="fa-regular fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                    <input 
-                        type="text" 
-                        id="nikInput"
-                        maxlength="16"
-                        placeholder="Contoh: 3171234567890001" 
-                        class="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#2DD4BF] focus:border-transparent transition"
-                    >
-                </div>
-                <p id="nikError" class="text-red-500 text-xs mt-2 hidden">NIK harus 16 digit angka</p>
-            </div>
-
-            <button id="cekButton" onclick="cekSertifikat()" class="w-full bg-[#0B2D2A] hover:bg-opacity-90 text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 transition">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <span>Cek & Download Sertifikat</span>
-            </button>
-
-            <div class="flex items-center gap-3 my-5">
-                <div class="flex-1 h-px bg-gray-200"></div>
-                <span class="text-gray-400 text-sm">atau</span>
-                <div class="flex-1 h-px bg-gray-200"></div>
-            </div>
-
-            <button onclick="caraMenemukanNIK()" class="w-full border border-gray-200 hover:bg-gray-50 text-[#0B2D2A] font-medium py-3.5 rounded-xl flex items-center justify-center gap-2 transition">
-                <i class="fa-solid fa-circle-info text-[#2DD4BF]"></i>
-                Cara Menemukan NIK
-            </button>
-
-            <div class="mt-5 bg-[#E8F9F7] rounded-xl p-4 flex gap-3">
-                <i class="fa-solid fa-shield-check text-[#2DD4BF] text-xl mt-0.5"></i>
-                <div>
-                    <p class="text-[#0B2D2A] font-semibold text-sm">Data Anda aman bersama kami</p>
-                    <p class="text-gray-600 text-xs mt-1 leading-relaxed">Kami tidak menyimpan data pribadi Anda. Sertifikat hanya dapat diakses oleh pemilik sah.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Keunggulan -->
-    <div class="max-w-md mx-auto px-4 mt-12 mb-8">
-        <div class="flex items-center justify-center gap-3 mb-8">
-            <div class="w-12 h-px bg-[#2DD4BF]"></div>
-            <h3 class="text-[#0B2D2A] font-bold text-lg">Keunggulan Kami</h3>
-            <div class="w-12 h-px bg-[#2DD4BF]"></div>
-        </div>
-
-        <div class="grid grid-cols-3 gap-4">
-            <div class="text-center">
-                <div class="w-14 h-14 bg-[#E8F9F7] rounded-2xl flex items-center justify-center mx-auto mb-3">
-                    <i class="fa-solid fa-shield-halved text-[#2DD4BF] text-xl"></i>
-                </div>
-                <p class="text-[#0B2D2A] font-semibold text-xs mb-1">Aman & Terverifikasi</p>
-                <p class="text-gray-500 text-xs leading-tight">Sertifikat resmi dengan sistem verifikasi keamanan berlapis.</p>
-            </div>
-            <div class="text-center">
-                <div class="w-14 h-14 bg-[#E8F9F7] rounded-2xl flex items-center justify-center mx-auto mb-3">
-                    <i class="fa-solid fa-bolt text-[#2DD4BF] text-xl"></i>
-                </div>
-                <p class="text-[#0B2D2A] font-semibold text-xs mb-1">Mudah & Cepat</p>
-                <p class="text-gray-500 text-xs leading-tight">Cukup masukkan NIK dan sertifikat dapat diunduh secara instan.</p>
-            </div>
-            <div class="text-center">
-                <div class="w-14 h-14 bg-[#E8F9F7] rounded-2xl flex items-center justify-center mx-auto mb-3">
-                    <i class="fa-solid fa-cloud-arrow-down text-[#2DD4BF] text-xl"></i>
-                </div>
-                <p class="text-[#0B2D2A] font-semibold text-xs mb-1">Akses Dimana Saja</p>
-                <p class="text-gray-500 text-xs leading-tight">Dapat diakses melalui perangkat apapun kapanpun Anda butuhkan.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="hero-gradient px-4 py-8 mt-8">
-        <div class="max-w-md mx-auto">
-            <div class="text-center mb-6">
-                <h3 class="text-white font-bold text-lg mb-1">Butuh Bantuan?</h3>
-                <p class="text-white text-opacity-70 text-sm">Tim support kami siap membantu Anda</p>
-            </div>
-
-            <div class="space-y-3">
-                <a href="https://wa.me/6281234567890" class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 flex items-center gap-3 hover:bg-opacity-20 transition block">
-                    <div class="w-10 h-10 bg-[#2DD4BF] rounded-full flex items-center justify-center">
-                        <i class="fa-brands fa-whatsapp text-white text-lg"></i>
-                    </div>
-                    <div>
-                        <p class="text-white text-opacity-70 text-xs">WhatsApp</p>
-                        <p class="text-white font-semibold text-sm">+62 812-3456-7890</p>
-                    </div>
-                </a>
-
-                <a href="mailto:support@pgmacademy.id" class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 flex items-center gap-3 hover:bg-opacity-20 transition block">
-                    <div class="w-10 h-10 bg-[#2DD4BF] rounded-full flex items-center justify-center">
-                        <i class="fa-regular fa-envelope text-white"></i>
-                    </div>
-                    <div>
-                        <p class="text-white text-opacity-70 text-xs">Email</p>
-                        <p class="text-white font-semibold text-sm">support@pgmacademy.id</p>
-                    </div>
-                </a>
-
-                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 flex items-center gap-3">
-                    <div class="w-10 h-10 bg-[#2DD4BF] rounded-full flex items-center justify-center">
-                        <i class="fa-regular fa-clock text-white"></i>
-                    </div>
-                    <div>
-                        <p class="text-white text-opacity-70 text-xs">Jam Operasional</p>
-                        <p class="text-white font-semibold text-sm">Senin - Jumat, 08.00 - 17.00 WIB</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-8 pt-6 border-t border-white border-opacity-10">
-                <p class="text-white text-opacity-60 text-xs">By.media_pgm_indonesia_kbb</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Popup Hasil - 3 Kondisi -->
-    <div id="resultModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden modal-animate">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="bg-white rounded-3xl max-w-md w-full modal-content-animate">
-                <div class="p-6">
-                    <!-- Kondisi 1: Sukses + Siap Download -->
-                    <div id="successState" class="hidden">
-                        <div class="text-center mb-5">
-                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fa-solid fa-circle-check text-green-500 text-3xl"></i>
-                            </div>
-                            <h3 class="text-[#0B2D2A] text-xl font-bold mb-1">Sertifikat Ditemukan!</h3>
-                            <p class="text-gray-500 text-sm">Berikut data sertifikat Anda</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-2xl p-4 mb-5">
-                            <img id="previewImg" src="https://i.imgur.com/8Km9tLL.png" alt="Sertifikat Preview" class="w-full rounded-xl mb-4 shadow-lg">
-                            <div class="space-y-2 text-sm">
-                               
