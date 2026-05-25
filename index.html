@@ -315,13 +315,17 @@
         });
 
         async function cekSertifikat() { 
-            const nik = nikInput.value; 
-            if (nik.length !== 16) { 
-                nikError.classList.remove('hidden'); 
-                nikInput.classList.add('ring-2', 'ring-red-500'); 
-                nikInput.focus(); 
-                return; 
-            } 
+    const nik = nikInput.value; 
+    if (nik.length !== 16) { 
+        nikError.classList.remove('hidden'); 
+        nikInput.classList.add('ring-2', 'ring-red-500'); 
+        nikInput.focus(); 
+        return; 
+    } 
+    
+    // Langsung buka tab baru ke Apps Script
+    window.open(`${SCRIPT_URL}?nik=${nik}`, '_blank');
+} 
             
             cekButton.disabled = true; 
             cekButton.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i><span>Memproses...</span>'; 
