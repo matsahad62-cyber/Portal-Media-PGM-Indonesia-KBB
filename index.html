@@ -29,6 +29,7 @@
                     <h1 class="text-[#2DD4BF] font-bold text-lg leading-tight">PGM ACADEMY</h1>
                     <p class="text-white text-xs">Pelatihan Generasi Maju</p>
                 </div>
+            </div>
             <div class="bg-white bg-opacity-10 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-2">
                 <i class="fa-solid fa-shield-check text-[#2DD4BF] text-sm"></i>
                 <div class="text-xs text-white leading-tight">
@@ -177,4 +178,37 @@
                 </a>
 
                 <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 flex items-center gap-3">
-                    <div class="w-10 h-10 bg-[#2DD4BF] rounded-full flex
+                    <div class="w-10 h-10 bg-[#2DD4BF] rounded-full flex items-center justify-center">
+                        <i class="fa-regular fa-clock text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-white text-opacity-70 text-xs">Jam Operasional</p>
+                        <p class="text-white font-semibold text-sm">Senin - Jumat, 08.00 - 17.00 WIB</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-8 pt-6 border-t border-white border-opacity-10">
+                <p class="text-white text-opacity-60 text-xs">By.media_pgm_indonesia_kbb</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Popup Hasil - 3 Kondisi -->
+    <div id="resultModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden modal-animate">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-3xl max-w-md w-full modal-content-animate">
+                <div class="p-6">
+                    <!-- Kondisi 1: Sukses + Siap Download -->
+                    <div id="successState" class="hidden">
+                        <div class="text-center mb-5">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fa-solid fa-circle-check text-green-500 text-3xl"></i>
+                            </div>
+                            <h3 class="text-[#0B2D2A] text-xl font-bold mb-1">Sertifikat Ditemukan!</h3>
+                            <p class="text-gray-500 text-sm">Berikut data sertifikat Anda</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-2xl p-4 mb-5">
+                            <img id="previewImg" src="https://i.imgur.com/8Km9tLL.png" alt="Sertifikat Preview" class="w-full rounded-xl mb-4 shadow-lg">
+                            <div class="space-y-2 text-sm">
+                               
