@@ -1,372 +1,125 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PGM Academy - Download Sertifikat</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        body { 
-            font-family: 'Poppins', sans-serif; 
-        }
-        .hero-gradient { 
-            background: linear-gradient(135deg, #0B2D2A 0%, #0F3D38 100%); 
-        }
-        .card-shadow { 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
-        }
-        @keyframes spin { 
-            to { transform: rotate(360deg); } 
-        }
-        .animate-spin { 
-            animation: spin 1s linear infinite; 
-        }
-        @keyframes fadeIn { 
-            from { opacity: 0; } 
-            to { opacity: 1; } 
-        }
-        @keyframes slideUp { 
-            from { transform: translateY(20px); opacity: 0; } 
-            to { transform: translateY(0); opacity: 1; } 
-        }
-        .modal-animate { 
-            animation: fadeIn 0.3s ease-out; 
-        }
-        .modal-content-animate { 
-            animation: slideUp 0.3s ease-out; 
-        }
-        input[type="number"]::-webkit-inner-spin-button,
-        input[type="number"]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cek Sertifikat - PGM Academy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial;
+      background: #0d4f3c;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+   .container { width: 100%; max-width: 420px; }
+   .card {
+      background: white;
+      padding: 32px 28px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+   .icon {
+      width: 48px; height: 48px; background: #e8f5f0;
+      border-radius: 12px; display: flex; align-items: center;
+      justify-content: center; margin: 0 auto 16px; font-size: 24px;
+    }
+    h2 { text-align: center; color: #0d4f3c; font-size: 22px; margin-bottom: 8px; }
+   .subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 24px; }
+    label { display: block; color: #333; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+    input {
+      width: 100%; padding: 14px 16px; font-size: 15px;
+      border: 1px solid #ddd; border-radius: 10px; margin-bottom: 16px;
+    }
+    input:focus { outline: none; border-color: #0d4f3c; }
+    button {
+      width: 100%; padding: 15px; font-size: 16px; font-weight: 700;
+      color: white; background: #0d4f3c; border: none;
+      border-radius: 10px; cursor: pointer;
+    }
+    button:disabled { background: #999; cursor: not-allowed; }
+    button:hover:not(:disabled) { background: #0a3d2f; }
+   .divider {
+      text-align: center; margin: 20px 0; color: #999;
+      font-size: 13px; position: relative;
+    }
+   .divider::before,.divider::after {
+      content: ''; position: absolute; top: 50%;
+      width: 40%; height: 1px; background: #e0e0e0;
+    }
+   .divider::before { left: 0; }.divider::after { right: 0; }
+   .info-btn {
+      width: 100%; padding: 12px; font-size: 14px;
+      background: white; border: 1px solid #ddd; border-radius: 10px;
+      color: #0d4f3c; text-decoration: none; display: block; text-align: center;
+    }
+   .notice {
+      margin-top: 20px; padding: 14px; background: #e8f5f0;
+      border-radius: 10px; font-size: 13px;
+    }
+   .notice b { color: #0d4f3c; display: block; margin-bottom: 4px; }
+   .notice p { color: #555; line-height: 1.5; }
+  </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Header -->
-    <div class="hero-gradient px-4 pt-4 pb-32">
-        <div class="max-w-md mx-auto flex justify-between items-start">
-            <div class="flex items-center gap-3">
-            <img src="https://i.imgur.com/aLYPqyB.png" 
-                 alt="Logo PGM KBB"
-                 class="w-12 h-12 rounded-xl object-cover">
-                <div>
-                    <h1 class="text-[#2DD4BF] font-bold text-lg leading-tight">PORTAL PGM INDONESIA BANDUNG BARAT</h1>
-                    <p class="text-white text-xs">Bergerak Berdampak Menebar Manfaat</p>
-                </div>
-            </div>
-            <div class="bg-white bg-opacity-10 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-2">
-                <i class="fa-solid fa-shield-check text-[#2DD4BF] text-sm"></i>
-                <div class="text-xs text-white leading-tight">
-                    <p class="font-semibold">Aman & Terpercaya</p>
-                    <p class="text-white text-opacity-80">Sertifikat Terverifikasi</p>
-                </div>
-            </div>
-        </div>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="icon">📄</div>
+      <h2>Cek Sertifikat Anda</h2>
+      <p class="subtitle">Masukkan NIK untuk menemukan sertifikat Anda</p>
 
-        <!-- Hero Content -->
-        <div class="max-w-md mx-auto mt-8">
-            <div class="inline-flex items-center gap-2 bg-white bg-opacity-10 backdrop-blur-sm px-3 py-1.5 rounded-full mb-4">
-                <div class="w-2 h-2 bg-[#2DD4BF] rounded-full"></div>
-                <span class="text-white text-xs font-medium">SISTEM SERTIFIKAT ONLINE</span>
-            </div>
-            
-            <div class="flex items-start justify-between">
-                <div class="flex-1">
-                    <h2 class="text-white text-4xl font-bold leading-tight">
-                        Download<br>
-                        <span class="text-[#2DD4BF]">Sertifikat</span>
-                    </h2>
-                    <p class="text-white text-opacity-80 text-sm mt-3 leading-relaxed">
-                        Masukkan NIK Anda untuk mengunduh<br>sertifikat keanggotaan resmi dari<br>PGM Indonesia KBB.
-                    </p>
-                </div>
-                <div class="w-40 -mr-2 -mt-8 ml-4">
-                <img src="https://i.imgur.com/Nzk1yrI.png" 
-                 alt="Icon Sertifikat"
-                 class=""w-full drop-shadow-2xl object-contain rounded-lg border-2 border-[#2DD4BF]/40 hover:scale-105 transition-all duration-300 hover:rotate-2">
-                </div>
-            </div>
-        </div>
+      <label>Nomor Induk Kependudukan (NIK)</label>
+      <input type="text" id="nik" placeholder="Contoh: 3171234567890001" maxlength="16">
+      <button type="button" onclick="cekSertifikat()">🔍 Cek & Download Sertifikat</button>
+
+      <div class="divider">atau</div>
+
+      <a href="https://forms.gle/BphpqbjkBKG6ih3E8" target="_blank" class="info-btn">
+        ℹ️ Cara Menemukan NIK
+      </a>
+
+      <div class="notice">
+        <b>Data Anda aman bersama kami</b>
+        <p>Kami tidak menyimpan data pribadi Anda. Sertifikat hanya dapat diakses oleh pemilik sah.</p>
+      </div>
     </div>
+  </div>
 
-    <!-- Form Card -->
-    <div class="max-w-md mx-auto px-4 -mt-20 relative z-10">
-        <div class="bg-white rounded-3xl card-shadow p-6">
-            <div class="text-center mb-6">
-                <div class="w-14 h-14 bg-[#E8F9F7] rounded-2xl flex items-center justify-center mx-auto mb-3">
-                    <i class="fa-regular fa-file-lines text-[#2DD4BF] text-2xl"></i>
-                </div>
-                <h3 class="text-[#0B2D2A] text-xl font-bold">Cek Sertifikat Anda</h3>
-                <p class="text-gray-500 text-sm mt-1">Masukkan NIK untuk menemukan sertifikat Anda</p>
-            </div>
+<script>
+const API_URL = 'https://script.google.com/macros/s/AKfycbwkVelVtqMX64yPT7gmTub8tYKkFJxzBs3-3HG57TXRKaZ5NCVPVPPwK5W_z-6oHbh-bA/exec';
 
-            <div class="mb-4">
-                <label class="text-[#0B2D2A] text-sm font-semibold mb-2 block">Nomor Induk Kependudukan (NIK)</label>
-                <div class="relative">
-                    <i class="fa-regular fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                    <input 
-                        type="text" 
-                        id="nikInput"
-                        maxlength="16"
-                        placeholder="Contoh: 3171234567890001" 
-                        class="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#2DD4BF] focus:border-transparent transition"
-                    >
-                </div>
-                <p id="nikError" class="text-red-500 text-xs mt-2 hidden">NIK harus 16 digit angka</p>
-            </div>
+function cekSertifikat() {
+  const nik = document.getElementById('nik').value.trim();
+  const btn = document.querySelector('button');
 
-            <button id="cekButton" onclick="cekSertifikat()" class="w-full bg-[#0B2D2A] hover:bg-opacity-90 text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 transition disabled:opacity-50 disabled:cursor-not-allowed">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <span>Cek & Download Sertifikat</span>
-            </button>
+  if (!nik) {
+    alert('Masukkan NIK dulu ya');
+    return;
+  }
+  if (nik.length!== 16) {
+    alert('NIK harus 16 digit');
+    return;
+  }
 
-            <div class="flex items-center gap-3 my-5">
-                <div class="flex-1 h-px bg-gray-200"></div>
-                <span class="text-gray-400 text-sm">atau</span>
-                <div class="flex-1 h-px bg-gray-200"></div>
-            </div>
+  btn.disabled = true;
+  btn.innerText = 'Membuka...';
 
-            <button onclick="caraMenemukanNIK()" class="w-full border border-gray-200 hover:bg-gray-50 text-[#0B2D2A] font-medium py-3.5 rounded-xl flex items-center justify-center gap-2 transition">
-                <i class="fa-solid fa-circle-info text-[#2DD4BF]"></i>
-                Cara Menemukan NIK
-            </button>
+  // Buka di tab baru biar ga kena blok script.google.com
+  window.open(`${API_URL}?nik=${nik}`, '_blank');
 
-            <div class="mt-5 bg-[#E8F9F7] rounded-xl p-4 flex gap-3">
-                <i class="fa-solid fa-shield-check text-[#2DD4BF] text-xl mt-0.5"></i>
-                <div>
-                    <p class="text-[#0B2D2A] font-semibold text-sm">Data Anda aman bersama kami</p>
-                    <p class="text-gray-600 text-xs mt-1 leading-relaxed">Kami tidak menyimpan data pribadi Anda. Sertifikat hanya dapat diakses oleh pemilik sah.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+  setTimeout(() => {
+    btn.disabled = false;
+    btn.innerText = '🔍 Cek & Download Sertifikat';
+  }, 2000);
+}
 
-    <!-- Keunggulan -->
-    <div class="max-w-md mx-auto px-4 mt-12 mb-8">
-        <div class="flex items-center justify-center gap-3 mb-8">
-            <div class="w-12 h-px bg-[#2DD4BF]"></div>
-            <h3 class="text-[#0B2D2A] font-bold text-lg">Keunggulan Kami</h3>
-            <div class="w-12 h-px bg-[#2DD4BF]"></div>
-        </div>
-
-        <div class="grid grid-cols-3 gap-4">
-            <div class="text-center">
-                <div class="w-14 h-14 bg-[#E8F9F7] rounded-2xl flex items-center justify-center mx-auto mb-3">
-                    <i class="fa-solid fa-shield-halved text-[#2DD4BF] text-xl"></i>
-                </div>
-                <p class="text-[#0B2D2A] font-semibold text-xs mb-1">Aman & Terverifikasi</p>
-                <p class="text-gray-500 text-xs leading-tight">Sertifikat resmi dengan sistem verifikasi keamanan berlapis.</p>
-            </div>
-            <div class="text-center">
-                <div class="w-14 h-14 bg-[#E8F9F7] rounded-2xl flex items-center justify-center mx-auto mb-3">
-                    <i class="fa-solid fa-bolt text-[#2DD4BF] text-xl"></i>
-                </div>
-                <p class="text-[#0B2D2A] font-semibold text-xs mb-1">Mudah & Cepat</p>
-                <p class="text-gray-500 text-xs leading-tight">Cukup masukkan NIK dan sertifikat dapat diunduh secara instan.</p>
-            </div>
-            <div class="text-center">
-                <div class="w-14 h-14 bg-[#E8F9F7] rounded-2xl flex items-center justify-center mx-auto mb-3">
-                    <i class="fa-solid fa-cloud-arrow-down text-[#2DD4BF] text-xl"></i>
-                </div>
-                <p class="text-[#0B2D2A] font-semibold text-xs mb-1">Akses Dimana Saja</p>
-                <p class="text-gray-500 text-xs leading-tight">Dapat diakses melalui perangkat apapun kapanpun Anda butuhkan.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="hero-gradient px-4 py-8 mt-8">
-        <div class="max-w-md mx-auto">
-            <div class="text-center mb-6">
-                <h3 class="text-white font-bold text-lg mb-1">Butuh Bantuan?</h3>
-                <p class="text-white text-opacity-70 text-sm">Tim support kami -Media PGM Indonesia KBB- siap membantu Anda</p>
-            </div>
-
-            <div class="space-y-3">
-                <a href="https://wa.me/6281321495025" target="_blank" rel="noopener noreferrer" class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 flex items-center gap-3 hover:bg-opacity-20 transition block">
-                    <div class="w-10 h-10 bg-[#2DD4BF] rounded-full flex items-center justify-center">
-                        <i class="fa-brands fa-whatsapp text-white text-lg"></i>
-                    </div>
-                    <div>
-                        <p class="text-white text-opacity-70 text-xs">WhatsApp</p>
-                        <p class="text-white font-semibold text-sm">+62 813-2149-5025</p>
-                    </div>
-                </a>
-
-                <a href="mailto:support@pgmacademy.id" class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 flex items-center gap-3 hover:bg-opacity-20 transition block">
-                    <div class="w-10 h-10 bg-[#2DD4BF] rounded-full flex items-center justify-center">
-                        <i class="fa-regular fa-envelope text-white"></i>
-                    </div>
-                    <div>
-                        <p class="text-white text-opacity-70 text-xs">Email</p>
-                        <p class="text-white font-semibold text-sm">pgmindonesiakbb23@gmail.com</p>
-                    </div>
-                </a>
-
-                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 flex items-center gap-3">
-                    <div class="w-10 h-10 bg-[#2DD4BF] rounded-full flex items-center justify-center">
-                        <i class="fa-regular fa-clock text-white"></i>
-                    </div>
-                    <div>
-                        <p class="text-white text-opacity-70 text-xs">Jam Operasional</p>
-                        <p class="text-white font-semibold text-sm">Senin - Jumat, 08.00 - 17.00 WIB</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-8 pt-6 border-t border-white border-opacity-10">
-                <p class="text-white text-opacity-60 text-xs">© 2026 Tim Media PGM Indonesia KBB. All rights reserved.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Popup Hasil -->
-    <div id="resultModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 hidden modal-animate">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="bg-white rounded-3xl max-w-md w-full modal-content-animate">
-                <div class="p-6">
-                    <div id="successState" class="hidden">
-                        <div class="text-center mb-5">
-                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fa-solid fa-circle-check text-green-500 text-3xl"></i>
-                            </div>
-                            <h3 class="text-[#0B2D2A] text-xl font-bold mb-1">Sertifikat Ditemukan!</h3>
-                            <p class="text-gray-500 text-sm">Berikut data sertifikat Anda</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-2xl p-4 mb-5">
-                            <div class="w-full aspect-video bg-gradient-to-br from-[#E8F9F7] to-[#d1f5f0] rounded-xl mb-4 shadow-lg flex items-center justify-center overflow-hidden">
-                                <svg viewBox="0 0 400 240" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="400" height="240" fill="url(#grad1)"/>
-                                    <defs>
-                                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#E8F9F7;stop-opacity:1" />
-                                            <stop offset="100%" style="stop-color:#2DD4BF;stop-opacity:0.3" />
-                                        </linearGradient>
-                                    </defs>
-                                    <g transform="translate(200, 90)">
-                                        <circle cx="0" cy="0" r="40" fill="#2DD4BF" opacity="0.2"/>
-                                        <path d="M0 -30 L25 -10 L0 10 L-25 -10 Z" fill="#2DD4BF"/>
-                                        <circle cx="0" cy="-10" r="8" fill="#0B2D2A"/>
-                                    </g>
-                                    <text x="200" y="160" font-family="Poppins" font-size="14" font-weight="600" fill="#0B2D2A" text-anchor="middle">SERTIFIKAT PELATIHAN</text>
-                                    <text x="200" y="180" font-family="Poppins" font-size="10" fill="#0B2D2A" text-anchor="middle" opacity="0.6">PGM Academy Indonesia</text>
-                                    <path d="M50 220 L350 220" stroke="#2DD4BF" stroke-width="2" opacity="0.3"/>
-                                </svg>
-                            </div>
-                            <div class="space-y-2 text-sm">
-                                <div class="flex justify-between"><span class="text-gray-500">Nama:</span><span class="text-[#0B2D2A] font-semibold" id="namaSertif">Ahmad Wijaya</span></div>
-                                <div class="flex justify-between"><span class="text-gray-500">No. Sertifikat:</span><span class="text-[#0B2D2A] font-semibold" id="noSertif">PGM/2024/001234</span></div>
-                                <div class="flex justify-between"><span class="text-gray-500">Tanggal:</span><span class="text-[#0B2D2A] font-semibold" id="tglSertif">15 Mei 2024</span></div>
-                                <div class="flex justify-between"><span class="text-gray-500">NIK:</span><span class="text-[#0B2D2A] font-semibold" id="nikSertif">3171234567890001</span></div>
-                            </div>
-                        </div>
-                        <button onclick="downloadSertifikat()" class="w-full bg-[#0B2D2A] hover:bg-opacity-90 text-white font-semibold py-3.5 rounded-xl flex items-center justify-center gap-2 transition mb-3">
-                            <i class="fa-solid fa-download"></i>Download Sertifikat PDF
-                        </button>
-                    </div>
-                    <div id="errorState" class="hidden">
-                        <div class="text-center mb-5">
-                            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fa-solid fa-circle-xmark text-red-500 text-3xl"></i>
-                            </div>
-                            <h3 class="text-[#0B2D2A] text-xl font-bold mb-1">Sertifikat Tidak Ditemukan</h3>
-                            <p class="text-gray-500 text-sm leading-relaxed">NIK yang Anda masukkan tidak terdaftar atau belum mengikuti pelatihan PGM Academy</p>
-                        </div>
-                        <div class="bg-amber-50 rounded-xl p-4 mb-5">
-                            <p class="text-amber-800 text-sm"><i class="fa-solid fa-lightbulb mr-2"></i>Pastikan NIK sudah benar atau hubungi tim support kami</p>
-                        </div>
-                    </div>
-                    <button onclick="closeModal()" class="w-full border border-gray-300 hover:bg-gray-50 text-[#0B2D2A] font-semibold py-3.5 rounded-xl transition">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const nikInput = document.getElementById('nikInput');
-        const cekButton = document.getElementById('cekButton');
-        const nikError = document.getElementById('nikError');
-        const resultModal = document.getElementById('resultModal');
-        const successState = document.getElementById('successState');
-        const errorState = document.getElementById('errorState');
-
-        nikInput.addEventListener('input', function(e) { 
-            this.value = this.value.replace(/[^0-9]/g, ''); 
-            nikError.classList.add('hidden'); 
-            nikInput.classList.remove('ring-2', 'ring-red-500'); 
-        });
-
-        nikInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                cekSertifikat();
-            }
-        });
-
-        function cekSertifikat() { 
-            const nik = nikInput.value; 
-            if (nik.length !== 16) { 
-                nikError.classList.remove('hidden'); 
-                nikInput.classList.add('ring-2', 'ring-red-500'); 
-                nikInput.focus(); 
-                return; 
-            } 
-            
-            cekButton.disabled = true; 
-            cekButton.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i><span>Memproses...</span>'; 
-            
-            setTimeout(() => { 
-                cekButton.disabled = false; 
-                cekButton.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i><span>Cek & Download Sertifikat</span>'; 
-                
-                // Demo: NIK 3171234567890001 atau yang diawali 32 dianggap valid
-                if (nik === '3171234567890001' || nik.startsWith('32')) { 
-                    showSuccess(nik); 
-                } else { 
-                    showError(); 
-                } 
-            }, 1500); 
-        }
-
-        function showSuccess(nik) { 
-            document.getElementById('nikSertif').textContent = nik;
-            resultModal.classList.remove('hidden'); 
-            successState.classList.remove('hidden'); 
-            errorState.classList.add('hidden'); 
-        }
-
-        function showError() { 
-            resultModal.classList.remove('hidden'); 
-            errorState.classList.remove('hidden'); 
-            successState.classList.add('hidden'); 
-        }
-
-        function closeModal() { 
-            resultModal.classList.add('hidden'); 
-        }
-
-        function downloadSertifikat() { 
-            const nik = document.getElementById('nikSertif').textContent;
-            alert('Download dimulai!\n\nNIK: ' + nik + '\n\nIntegrasikan dengan API download sertifikat kamu di sini\nContoh: window.location.href = "/api/download?nik=" + nik'); 
-        }
-
-        function caraMenemukanNIK() { 
-            alert('Cara Menemukan NIK:\n\n1. Lihat di KTP Anda\n2. NIK terdiri dari 16 digit angka\n3. Terletak di bagian atas KTP\n\nContoh: 3171234567890001\n\nPastikan tidak ada spasi atau karakter lain.'); 
-        }
-
-        resultModal.addEventListener('click', function(e) { 
-            if (e.target === resultModal) closeModal(); 
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && !resultModal.classList.contains('hidden')) {
-                closeModal();
-            }
-        });
-    </script>
+// Enter key juga bisa
+document.getElementById('nik').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') cekSertifikat();
+});
+</script>
 </body>
 </html>
