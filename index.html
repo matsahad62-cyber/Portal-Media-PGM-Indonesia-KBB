@@ -1,671 +1,125 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PGM Academy - Download Sertifikat</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-    * {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cek Sertifikat - PGM Academy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-        background-attachment: fixed;
-        min-height: 100vh;
-        position: relative;
-        overflow-x: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial;
+      background: #0d4f3c;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
-    
-    body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: 
-            radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
-        pointer-events: none;
-        z-index: 0;
+   .container { width: 100%; max-width: 420px; }
+   .card {
+      background: white;
+      padding: 32px 28px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
-    
-    .glass-card {
-        background: rgba(30, 41, 59, 0.6);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+   .icon {
+      width: 48px; height: 48px; background: #e8f5f0;
+      border-radius: 12px; display: flex; align-items: center;
+      justify-content: center; margin: 0 auto 16px; font-size: 24px;
     }
-    
-    .gradient-text {
-        background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+    h2 { text-align: center; color: #0d4f3c; font-size: 22px; margin-bottom: 8px; }
+   .subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 24px; }
+    label { display: block; color: #333; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+    input {
+      width: 100%; padding: 14px 16px; font-size: 15px;
+      border: 1px solid #ddd; border-radius: 10px; margin-bottom: 16px;
     }
-    
-    .gradient-border {
-        position: relative;
-        background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1));
-        border: 2px solid transparent;
-        background-clip: padding-box;
+    input:focus { outline: none; border-color: #0d4f3c; }
+    button {
+      width: 100%; padding: 15px; font-size: 16px; font-weight: 700;
+      color: white; background: #0d4f3c; border: none;
+      border-radius: 10px; cursor: pointer;
     }
-    
-    .gradient-border::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        padding: 2px;
-        background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        pointer-events: none;
+    button:disabled { background: #999; cursor: not-allowed; }
+    button:hover:not(:disabled) { background: #0a3d2f; }
+   .divider {
+      text-align: center; margin: 20px 0; color: #999;
+      font-size: 13px; position: relative;
     }
-    
-    .btn-primary {
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
+   .divider::before,.divider::after {
+      content: ''; position: absolute; top: 50%;
+      width: 40%; height: 1px; background: #e0e0e0;
     }
-    
-    .btn-primary::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-        transition: left 0.5s ease;
+   .divider::before { left: 0; }.divider::after { right: 0; }
+   .info-btn {
+      width: 100%; padding: 12px; font-size: 14px;
+      background: white; border: 1px solid #ddd; border-radius: 10px;
+      color: #0d4f3c; text-decoration: none; display: block; text-align: center;
     }
-    
-    .btn-primary:hover::before {
-        left: 100%;
+   .notice {
+      margin-top: 20px; padding: 14px; background: #e8f5f0;
+      border-radius: 10px; font-size: 13px;
     }
-    
-    .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.5);
-    }
-    
-    .btn-success {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        transition: all 0.3s ease;
-    }
-    
-    .btn-success:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.5);
-    }
-    
-    .input-glow:focus {
-        box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3), 0 0 20px rgba(96, 165, 250, 0.2);
-        border-color: #60a5fa;
-    }
-    
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes pulse-glow {
-        0%, 100% {
-            box-shadow: 0 0 20px rgba(96, 165, 250, 0.4);
-        }
-        50% {
-            box-shadow: 0 0 30px rgba(96, 165, 250, 0.6);
-        }
-    }
-    
-    .animate-fadeInUp {
-        animation: fadeInUp 0.6s ease-out forwards;
-    }
-    
-    .animate-pulse-glow {
-        animation: pulse-glow 2s ease-in-out infinite;
-    }
-    
-    .floating {
-        animation: floating 3s ease-in-out infinite;
-    }
-    
-    @keyframes floating {
-        0%, 100% {
-            transform: translateY(0px);
-        }
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-    
-    .loader {
-        border: 3px solid rgba(255, 255, 255, 0.1);
-        border-top: 3px solid #60a5fa;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        animation: spin 1s linear infinite;
-    }
-    
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-    
-    .result-card {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    
-    .result-card.show {
-        opacity: 1;
-        transform: translateY(0);
-        transition: all 0.5s ease;
-    }
-    
-    .icon-badge {
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(167, 139, 250, 0.2));
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 28px;
-    }
-    
-    @media (max-width: 640px) {
-        .icon-badge {
-            width: 48px;
-            height: 48px;
-            font-size: 24px;
-        }
-    }
-</style>
+   .notice b { color: #0d4f3c; display: block; margin-bottom: 4px; }
+   .notice p { color: #555; line-height: 1.5; }
+  </style>
 </head>
-<body class="relative">
-    <div class="relative z-10 min-h-screen flex flex-col">
-        <!-- Header -->
-        <header class="pt-8 pb-4 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-4xl mx-auto">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg">
-                            <i class="fas fa-graduation-cap text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-xl sm:text-2xl font-bold text-white">PGM Indonesia KBB</h1>
-                            <p class="text-xs text-slate-400">Sertifikat Digital Platform</p>
-                        </div>
-                    </div>
-                    <a href="https://drive.google.com/drive/folders/1GLyupBG76gBbvsFrYzTcxfa3GVv6838g?usp=drive_link" target="_blank" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg glass-card text-slate-300 hover:text-white transition">
-                        <i class="fab fa-google-drive"></i>
-                        <span class="text-sm">Arsip</span>
-                    </a>
-                </div>
-            </div>
-        </header>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="icon">📄</div>
+      <h2>Cek Sertifikat Anda</h2>
+      <p class="subtitle">Masukkan NIK untuk menemukan sertifikat Anda</p>
 
-        <!-- Main Content -->
-        <main class="flex-1 px-4 sm:px-6 lg:px-8 py-8">
-            <div class="max-w-4xl mx-auto">
-                <!-- Hero Section -->
-                <div class="text-center mb-12 animate-fadeInUp">
-                    <div class="inline-block mb-4">
-                        <span class="px-4 py-1.5 rounded-full glass-card text-sm text-blue-300 font-medium">
-                            <i class="fas fa-certificate mr-2"></i>Portal Sertifikat Digital
-                        </span>
-                    </div>
-                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4">
-                        <span class="gradient-text">Download Sertifikat</span>
-                        <br>
-                        <span class="text-white">Anda Sekarang</span>
-                    </h2>
-                    <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">
-                    Masukkan NIK 16 digit Anda<br>
-                    untuk mengunduh sertifikat Keanggotaan PGM Indonesia KBB secara instan
-                    </p>
-                </div>
+      <label>Nomor Induk Kependudukan (NIK)</label>
+      <input type="text" id="nik" placeholder="Contoh: 3171234567890001" maxlength="16">
+      <button type="button" onclick="cekSertifikat()">🔍 Cek & Download Sertifikat</button>
 
-                <!-- Search Card -->
-                <div class="glass-card rounded-3xl p-6 sm:p-8 mb-8 animate-fadeInUp" style="animation-delay: 0.1s">
-                    <form id="searchForm" class="space-y-6">
-                        <div>
-                            <label for="nikInput" class="block text-sm font-semibold text-slate-300 mb-3">
-                                <i class="fas fa-id-card mr-2 text-blue-400"></i>Nomor Induk Kependudukan (NIK)
-                            </label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                    <i class="fas fa-hashtag text-slate-500"></i>
-                                </div>
-                                <input 
-                                    type="text" 
-                                    id="nikInput" 
-                                    maxlength="16"
-                                    placeholder="Masukkan 16 digit NIK Anda"
-                                    class="w-full pl-12 pr-4 py-4 bg-slate-800/50 border-2 border-slate-700 rounded-xl text-white text-lg placeholder-slate-500 focus:outline-none input-glow transition"
-                                    autocomplete="off"
-                                >
-                                <div class="absolute inset-y-0 right-0 pr-4 flex items-center">
-                                    <span id="charCount" class="text-sm font-medium text-slate-500">0/16</span>
-                                </div>
-                            </div>
-                            <p id="inputError" class="mt-2 text-sm text-red-400 hidden">
-                                <i class="fas fa-exclamation-circle mr-1"></i>
-                                <span id="errorText"></span>
-                            </p>
-                        </div>
+      <div class="divider">atau</div>
 
-                        <button 
-                            type="submit" 
-                            id="searchBtn"
-                            class="btn-primary w-full py-4 rounded-xl text-white font-bold text-lg shadow-lg flex items-center justify-center gap-3"
-                        >
-                            <i class="fas fa-search"></i>
-                            <span>Cari Sertifikat</span>
-                        </button>
-                    </form>
-                </div>
+      <a href="https://forms.gle/BphpqbjkBKG6ih3E8" target="_blank" class="info-btn">
+        ℹ️ Cara Menemukan NIK
+      </a>
 
-                <!-- Loading State -->
-                <div id="loadingState" class="hidden">
-                    <div class="glass-card rounded-3xl p-8 sm:p-12 text-center animate-fadeInUp">
-                        <div class="loader mx-auto mb-6"></div>
-                        <h3 class="text-xl font-bold text-white mb-2">Mencari Data Anda...</h3>
-                        <p class="text-slate-400">Mohon tunggu sebentar, kami sedang memproses permintaan Anda</p>
-                    </div>
-                </div>
-
-                <!-- Result Success -->
-                <div id="resultSuccess" class="hidden result-card">
-                    <div class="glass-card rounded-3xl p-6 sm:p-8 gradient-border">
-                        <div class="flex items-start gap-4 mb-6">
-                            <div class="icon-badge animate-pulse-glow">
-                                <i class="fas fa-check-circle text-green-400"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-2xl font-bold text-white mb-1">Sertifikat Ditemukan!</h3>
-                                <p class="text-slate-400 text-sm">Data sertifikat Anda berhasil ditemukan dalam sistem</p>
-                            </div>
-                        </div>
-
-                        <div class="space-y-4 mb-6">
-                            <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-                                <div class="flex items-center gap-3 mb-2">
-                                    <i class="fas fa-user text-blue-400"></i>
-                                    <span class="text-slate-400 text-sm font-medium">Nama Lengkap</span>
-                                </div>
-                                <p id="resultNama" class="text-white font-bold text-lg"></p>
-                            </div>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-                                    <div class="flex items-center gap-3 mb-2">
-                                        <i class="fas fa-fingerprint text-purple-400"></i>
-                                        <span class="text-slate-400 text-sm font-medium">No. Sertifikat</span>
-                                    </div>
-                                    <p id="resultNoSertifikat" class="text-white font-semibold"></p>
-                                </div>
-
-                                <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
-                                    <div class="flex items-center gap-3 mb-2">
-                                        <i class="fas fa-calendar text-pink-400"></i>
-                                        <span class="text-slate-400 text-sm font-medium">Tanggal Terbit</span>
-                                    </div>
-                                    <p id="resultTanggal" class="text-white font-semibold"></p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col sm:flex-row gap-3">
-                            <a 
-                                id="downloadBtn"
-                                href="#"
-                                target="_blank"
-                                class="btn-success flex-1 py-4 rounded-xl text-white font-bold text-center shadow-lg flex items-center justify-center gap-3"
-                            >
-                                <i class="fas fa-download"></i>
-                                <span>Download Sertifikat PDF</span>
-                            </a>
-                            <button 
-                                id="resetBtn"
-                                class="px-6 py-4 rounded-xl glass-card text-slate-300 hover:text-white font-semibold transition flex items-center justify-center gap-2"
-                            >
-                                <i class="fas fa-redo"></i>
-                                <span>Cari Lagi</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Result Not Found -->
-                <div id="resultNotFound" class="hidden result-card">
-                    <div class="glass-card rounded-3xl p-6 sm:p-8 border-2 border-orange-500/30">
-                        <div class="flex items-start gap-4 mb-6">
-                            <div class="icon-badge floating">
-                                <i class="fas fa-exclamation-triangle text-orange-400"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-2xl font-bold text-white mb-1">Sertifikat Belum Tersedia</h3>
-                                <p class="text-slate-400 text-sm">NIK yang Anda masukkan belum terdaftar atau sertifikat belum diterbitkan</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-orange-500/10 border border-orange-500/30 rounded-xl p-5 mb-6">
-                            <h4 class="text-white font-semibold mb-3 flex items-center gap-2">
-                                <i class="fas fa-info-circle text-orange-400"></i>
-                                Kemungkinan Penyebab:
-                            </h4>
-                            <ul class="space-y-2 text-slate-300 text-sm">
-                                <li class="flex items-start gap-2">
-                                    <i class="fas fa-dot-circle text-orange-400 mt-1 text-xs"></i>
-                                    <span>Anda belum Mengisi Form Pendataan Anggota PGM Indonesia KBB</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i class="fas fa-dot-circle text-orange-400 mt-1 text-xs"></i>
-                                    <span>Sertifikat masih dalam proses verifikasi dan penerbitan</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i class="fas fa-dot-circle text-orange-400 mt-1 text-xs"></i>
-                                    <span>NIK yang dimasukkan tidak sesuai dengan data pendaftaran</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="flex flex-col sm:flex-row gap-3">
-                            <a 
-                                href="https://forms.gle/XgPdwwLi97uU57Jp8"
-                                target="_blank"
-                                class="btn-primary flex-1 py-4 rounded-xl text-white font-bold text-center shadow-lg flex items-center justify-center gap-3"
-                            >
-                                <i class="fas fa-user-plus"></i>
-                                <span>Daftar Sekarang</span>
-                            </a>
-                            <button 
-                                id="resetBtnError"
-                                class="px-6 py-4 rounded-xl glass-card text-slate-300 hover:text-white font-semibold transition flex items-center justify-center gap-2"
-                            >
-                                <i class="fas fa-redo"></i>
-                                <span>Coba Lagi</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Info Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 animate-fadeInUp" style="animation-delay: 0.2s">
-                    <div class="glass-card rounded-2xl p-5 text-center">
-                        <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-blue-500/20 flex items-center justify-center">
-                            <i class="fas fa-shield-alt text-blue-400 text-xl"></i>
-                        </div>
-                        <h4 class="text-white font-semibold mb-1">Aman & Terpercaya</h4>
-                        <p class="text-slate-400 text-sm">Sertifikat digital dengan QR verification</p>
-                    </div>
-                    
-                    <div class="glass-card rounded-2xl p-5 text-center">
-                        <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                            <i class="fas fa-bolt text-purple-400 text-xl"></i>
-                        </div>
-                        <h4 class="text-white font-semibold mb-1">Proses Cepat</h4>
-                        <p class="text-slate-400 text-sm">Download instant setelah verifikasi NIK</p>
-                    </div>
-                    
-                    <div class="glass-card rounded-2xl p-5 text-center">
-                        <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-pink-500/20 flex items-center justify-center">
-                            <i class="fas fa-mobile-alt text-pink-400 text-xl"></i>
-                        </div>
-                        <h4 class="text-white font-semibold mb-1">Akses 24/7</h4>
-                        <p class="text-slate-400 text-sm">Download kapan saja dari perangkat apapun</p>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="py-8 px-4 sm:px-6 lg:px-8 border-t border-slate-800/50">
-            <div class="max-w-4xl mx-auto">
-                <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div class="text-center sm:text-left">
-                        <p class="text-slate-400 text-sm">
-                            © 2026 Tim Media PGM Indonesia KBB. All rights reserved.
-                        </p>
-                        <p class="text-slate-500 text-xs mt-1">
-                            Platform Sertifikasi Digital Terpercaya
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <a href="https://forms.gle/XgPdwwLi97uU57Jp8" target="_blank" class="text-slate-400 hover:text-blue-400 transition">
-                            <i class="fas fa-user-plus"></i>
-                        </a>
-                        <a href="https://drive.google.com/drive/folders/1GLyupBG76gBbvsFrYzTcxfa3GVv6838g?usp=drive_link" target="_blank" class="text-slate-400 hover:text-purple-400 transition">
-                            <i class="fab fa-google-drive"></i>
-                        </a>
-                        <a href="mailto:pgmindonesiakbb23@gmail.com" class="text-slate-400 hover:text-pink-400 transition">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+      <div class="notice">
+        <b>Data Anda aman bersama kami</b>
+        <p>Kami tidak menyimpan data pribadi Anda. Sertifikat hanya dapat diakses oleh pemilik sah.</p>
+      </div>
     </div>
+  </div>
 
 <script>
-    const API_URL = 'https://script.google.com/macros/s/AKfycbxMULRVEKhOOo6U9ORjA4V_a0O60lcNJH/exec';
-    const FORM_URL = 'https://forms.gle/XgPdwwLi97uU57Jp8';
-    
-    const searchForm = document.getElementById('searchForm');
-    const nikInput = document.getElementById('nikInput');
-    const charCount = document.getElementById('charCount');
-    const inputError = document.getElementById('inputError');
-    const errorText = document.getElementById('errorText');
-    const searchBtn = document.getElementById('searchBtn');
-    
-    const loadingState = document.getElementById('loadingState');
-    const resultSuccess = document.getElementById('resultSuccess');
-    const resultNotFound = document.getElementById('resultNotFound');
-    
-    const resultNama = document.getElementById('resultNama');
-    const resultNoSertifikat = document.getElementById('resultNoSertifikat');
-    const resultTanggal = document.getElementById('resultTanggal');
-    const downloadBtn = document.getElementById('downloadBtn');
-    
-    const resetBtn = document.getElementById('resetBtn');
-    const resetBtnError = document.getElementById('resetBtnError');
+const API_URL = 'https://script.google.com/macros/s/AKfycbwkVelVtqMX64yPT7gmTub8tYKkFJxzBs3-3HG57TXRKaZ5NCVPVPPwK5W_z-6oHbh-bA/exec';
 
-    // Update character counter
-    nikInput.addEventListener('input', (e) => {
-        let value = e.target.value.replace(/\D/g, '');
-        if (value.length > 16) value = value.slice(0, 16);
-        e.target.value = value;
-        
-        charCount.textContent = `${value.length}/16`;
-        
-        if (value.length === 16) {
-            charCount.classList.remove('text-slate-500');
-            charCount.classList.add('text-green-400');
-            hideError();
-        } else {
-            charCount.classList.remove('text-green-400');
-            charCount.classList.add('text-slate-500');
-        }
-    });
+function cekSertifikat() {
+  const nik = document.getElementById('nik').value.trim();
+  const btn = document.querySelector('button');
 
-    // Prevent non-numeric input
-    nikInput.addEventListener('keypress', (e) => {
-        if (!/\d/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete' && e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') {
-            e.preventDefault();
-        }
-    });
+  if (!nik) {
+    alert('Masukkan NIK dulu ya');
+    return;
+  }
+  if (nik.length!== 16) {
+    alert('NIK harus 16 digit');
+    return;
+  }
 
-    // Form submit
-    searchForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const nik = nikInput.value.trim();
-        
-        if (!validateNIK(nik)) {
-            return;
-        }
-        
-        await fetchCertificate(nik);
-    });
+  btn.disabled = true;
+  btn.innerText = 'Membuka...';
 
-    // Reset buttons
-    resetBtn.addEventListener('click', resetForm);
-    resetBtnError.addEventListener('click', resetForm);
+  // Buka di tab baru biar ga kena blok script.google.com
+  window.open(`${API_URL}?nik=${nik}`, '_blank');
 
-    function validateNIK(nik) {
-        if (!nik) {
-            showError('NIK tidak boleh kosong');
-            return false;
-        }
-        if (nik.length !== 16) {
-            showError('NIK harus terdiri dari 16 digit angka');
-            return false;
-        }
-        if (!/^\d{16}$/.test(nik)) {
-            showError('NIK hanya boleh berisi angka');
-            return false;
-        }
-        return true;
-    }
+  setTimeout(() => {
+    btn.disabled = false;
+    btn.innerText = '🔍 Cek & Download Sertifikat';
+  }, 2000);
+}
 
-    function showError(message) {
-        errorText.textContent = message;
-        inputError.classList.remove('hidden');
-        nikInput.classList.add('border-red-500');
-        nikInput.classList.remove('border-slate-700');
-    }
-
-    function hideError() {
-        inputError.classList.add('hidden');
-        nikInput.classList.remove('border-red-500');
-        nikInput.classList.add('border-slate-700');
-    }
-
-    function showLoading() {
-        hideAllResults();
-        loadingState.classList.remove('hidden');
-        searchBtn.disabled = true;
-        searchBtn.classList.add('opacity-50', 'cursor-not-allowed');
-    }
-
-    function hideLoading() {
-        loadingState.classList.add('hidden');
-        searchBtn.disabled = false;
-        searchBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-    }
-
-    function hideAllResults() {
-        resultSuccess.classList.add('hidden');
-        resultNotFound.classList.add('hidden');
-        resultSuccess.classList.remove('show');
-        resultNotFound.classList.remove('show');
-    }
-
-    function showSuccess(data) {
-        hideLoading();
-        hideAllResults();
-        
-        resultNama.textContent = data.nama || '-';
-        resultNoSertifikat.textContent = data.no_sertifikat || '-';
-        resultTanggal.textContent = data.tanggal || '-';
-        
-        if (data.link_pdf) {
-            downloadBtn.href = data.link_pdf;
-            downloadBtn.classList.remove('pointer-events-none', 'opacity-50');
-        } else {
-            downloadBtn.href = '#';
-            downloadBtn.classList.add('pointer-events-none', 'opacity-50');
-        }
-        
-        resultSuccess.classList.remove('hidden');
-        setTimeout(() => {
-            resultSuccess.classList.add('show');
-            resultSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
-    }
-
-    function showNotFound() {
-        hideLoading();
-        hideAllResults();
-        resultNotFound.classList.remove('hidden');
-        setTimeout(() => {
-            resultNotFound.classList.add('show');
-            resultNotFound.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
-    }
-
-    function resetForm() {
-        nikInput.value = '';
-        charCount.textContent = '0/16';
-        charCount.classList.remove('text-green-400');
-        charCount.classList.add('text-slate-500');
-        hideError();
-        hideAllResults();
-        hideLoading();
-        nikInput.focus();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    async function fetchCertificate(nik) {
-        showLoading();
-        
-        try {
-            const url = `${API_URL}?nik=${encodeURIComponent(nik)}`;
-            const response = await fetch(url, {
-                method: 'GET',
-                redirect: 'follow'
-            });
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            
-            const data = await response.json();
-            
-            // Expected API response: {status: "success"|"not_found", nama, no_sertifikat, tanggal, link_pdf}
-            if (data.status === 'success' && data.nama) {
-                showSuccess(data);
-            } else if (data.status === 'not_found' || !data.nama) {
-                showNotFound();
-            } else {
-                throw new Error('Format response tidak sesuai');
-            }
-            
-        } catch (error) {
-            console.error('Fetch error:', error);
-            hideLoading();
-            
-            // Check if it's a CORS error or network error
-            if (error.message.includes('Failed to fetch') || error.name === 'TypeError') {
-                showError('Gagal terhubung ke server. Pastikan koneksi internet stabil atau hubungi admin.');
-            } else {
-                showNotFound();
-            }
-        }
-    }
-
-    // Auto focus on load
-    window.addEventListener('load', () => {
-        nikInput.focus();
-    });
+// Enter key juga bisa
+document.getElementById('nik').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') cekSertifikat();
+});
 </script>
 </body>
 </html>
